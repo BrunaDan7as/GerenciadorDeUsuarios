@@ -1,0 +1,43 @@
+﻿@page
+@model GerenciadorUsuarios.Pages.CreateModel
+@{
+}
+<!--Formulário para cadastrar novo usuário-->
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Cadastro de Usuário</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            Nome:
+            <input type="text" nome="nome" />
+        </div>
+        <div class="mb-3">
+            Sobrenome:
+            <input type="text" sobrenome="sobrenome" />
+        </div>
+        <div class="mb-3">
+            Email:
+            <input type="email" email="email" />
+        </div>
+        <div class="mb-3">
+            Data Nascimento:
+            <input type="date" dataNascimento="dataNascimento" />
+        </div>
+        <div class="mb-3">
+            Escolaridade:
+            <select name="escolaridade" id="escolaridade">
+                <option value="infantil">Infantil</option>
+                <option value="fundamental">Fundamental</option>
+                <option value="medio">Médio</option>
+
+            </select>
+            <br />
+            <br />
+            <br />
+            <br />
+            <button type="submit" class="btn btn-primary" style="width:150px;">Cadastrar</button>
+        </div>
+    </div>
+</form>
