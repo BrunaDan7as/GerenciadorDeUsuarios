@@ -17,10 +17,16 @@ namespace GerenciadorUsuarios.Pages
                     string sql = "SELECT * FROM Usuarios"; // sql query
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
-
-    } }
+            
+         
+        }
+        protected void btncadastro(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+        }
+    }    
 }
