@@ -32,8 +32,8 @@
          <td>@usuarios.escolaridade</td>
          <td>
              <!--Botões de editar e excluir do banco-->
-             <a class="btn btn-primary btn-sm" href="/Client/Edit?id=@usuarios.id">Editar</a>
-             <a class="btn btn-danger btn-sm" href="/Client/Delete?id=@usuarios.id">Excluir</a>
+             <a asp-page="Edit" class="btn btn-primary btn-sm" href="/Client/Edit?id=@usuarios.id">Editar</a>
+             <a asp-page="Delete" class="btn btn-danger btn-sm" href="/Client/Delete?id=@usuarios.id">Excluir</a>
          </td>
      </tr>       
 }
