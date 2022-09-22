@@ -3,6 +3,17 @@
 @{
 }
 <!--Formulário para cadastrar novo usuário-->
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dimissible fade show' role='alert'>
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss = 'alert' aria-label = 'Close'></button>
+    </div>    
+}
+
+
+
 <form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
@@ -11,20 +22,34 @@
         </div>
         <div class="mb-3">
             Nome:
-            <input type="text" id="txtNome" nome="nome" />
+            <input type="text" id="txtNome" nome="nome" value="@Model.usuariosInfo.nome"/>
         </div>
         <div class="mb-3">
             Sobrenome:
-            <input type="text" id="txtSobrenome" sobrenome="sobrenome" />
+            <input type="text" id="txtSobrenome" sobrenome="sobrenome" value="@Model.usuariosInfo.sobrenome"/>
         </div>
         <div class="mb-3">
             Email:
-            <input type="email" id="txtEmail" email="email" />
+            <input type="email" id="txtEmail" email="email" value="@Model.usuariosInfo.email"/>
         </div>
         <div class="mb-3">
             Data Nascimento:
-            <input type="date" id="txtDatanascimento" dataNascimento="dataNascimento" />
+            <input type="date" id="txtDatanascimento" dataNascimento="dataNascimento" value="@Model.usuariosInfo.dataNascimento" />
         </div>
+
+        @if (Model.sucessMessage.Length > 0)
+        {
+            <div class="row mb-3">
+                <div class="col-sm-9">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.sucessMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
+                    </div>
+                </div>
+
+            </div>
+        }
+
         <div class="mb-3">
             Escolaridade:
             <select name="escolaridade" id="txtEscolaridade">
