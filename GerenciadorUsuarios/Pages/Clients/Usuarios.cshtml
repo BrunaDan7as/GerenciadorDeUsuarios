@@ -1,11 +1,11 @@
 ﻿@page
-@model GerenciadorUsuarios.Pages.UsuariosModel
+@model GerenciadorUsuarios.Pages.Clients.UsuariosModel
 @{
 }
 <br />
 <h2>Gerenciador de Usuários</h2>
 <!-- Botão para cadastrar usuário-->
-<a asp-page="create" class='btn btn-primary btn-sm'>Novo Cadastro</a> 
+<a class="btn btn-primary btn-sm" href="/Create">Novo Cadastro</a> 
 <!--Tabela com as nomenclaturas das colunas-->
 <table class="table">
     <thead>
@@ -16,24 +16,26 @@
             <th>Email</th>
             <th>Data Nascimento</th>
             <th>Escolaridade</th>
+            <th>Data Criação</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <!--Informações que estão no banco para aparecer na tabela-->
-@foreach (var usuarios in Model.listUsuarios)
+@foreach (var item in Model.listUsuarios)
 {
      <tr>
-         <td>@usuarios.id</td>
-         <td>@usuarios.nome</td>
-         <td>@usuarios.sobrenome</td>
-         <td>@usuarios.email</td>
-         <td>@usuarios.dataNascimento</td>
-         <td>@usuarios.escolaridade</td>
+         <td>@item.id</td>
+         <td>@item.nome</td>
+         <td>@item.sobrenome</td>
+         <td>@item.email</td>
+         <td>@item.dataNascimento</td>
+         <td>@item.escolaridade</td>
+         <td>@item.created_at</td>
          <td>
              <!--Botões de editar e excluir do banco-->
-             <a asp-page="Edit" class="btn btn-primary btn-sm" href="/Client/Edit?id=@usuarios.id">Editar</a>
-             <a asp-page="Delete" class="btn btn-danger btn-sm" href="/Client/Delete?id=@usuarios.id">Excluir</a>
+             <a class="btn btn-primary btn-sm" href="/Client/Edit?id=@item.id">Editar</a>
+             <a class="btn btn-danger btn-sm" href="/Client/Delete?id=@item.id">Excluir</a>
          </td>
      </tr>       
 }

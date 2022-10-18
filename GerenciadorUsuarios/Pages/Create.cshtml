@@ -1,69 +1,73 @@
 ﻿@page
-@model GerenciadorUsuarios.Pages.CreateModel
+@model GerenciadorUsuarios.Pages.Clients.CreateModel
 @{
 }
 <!--Formulário para cadastrar novo usuário-->
 
+<br />
+<h2>Novo Usuário</h2>
+
 @if (Model.errorMessage.Length > 0)
 {
-    <div class='alert alert-warning alert-dimissible fade show' role='alert'>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>@Model.errorMessage</strong>
-        <button type="button" class="btn-close" data-bs-dismiss = 'alert' aria-label = 'Close'></button>
-    </div>    
+        <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 }
 
-
-
 <form method="post">
-    <div class="border p-3 mt-4">
-        <div class="row pb-2">
-            <h2 class="text-primary pl-3">Cadastro de Usuário</h2>
-            <hr />
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nome</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nome" value="@Model.usuariosInfo.nome" />
         </div>
-        <div class="mb-3">
-            Nome:
-            <input type="text" id="txtNome" nome="nome" value="@Model.usuariosInfo.nome"/>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Sobrenome</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="sobrenome" value="@Model.usuariosInfo.sobrenome" />
         </div>
-        <div class="mb-3">
-            Sobrenome:
-            <input type="text" id="txtSobrenome" sobrenome="sobrenome" value="@Model.usuariosInfo.sobrenome"/>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" value="@Model.usuariosInfo.email" />
         </div>
-        <div class="mb-3">
-            Email:
-            <input type="email" id="txtEmail" email="email" value="@Model.usuariosInfo.email"/>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Data Nascimento</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="dataNascimento" value="@Model.usuariosInfo.dataNascimento" />
         </div>
-        <div class="mb-3">
-            Data Nascimento:
-            <input type="date" id="txtDatanascimento" dataNascimento="dataNascimento" value="@Model.usuariosInfo.dataNascimento" />
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Escolaridade</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="escolaridade" value="@Model.usuariosInfo.escolaridade" />
         </div>
+    </div>
 
-        @if (Model.sucessMessage.Length > 0)
-        {
-            <div class="row mb-3">
-                <div class="col-sm-9">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>@Model.sucessMessage</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
-                    </div>
+    @if (Model.sucessMessage.Length > 0)
+    {
+        <div class="row-mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-sucess alert-dismissible fade show" role="alert">
+                    <strong>@Model.sucessMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-
             </div>
-        }
+        </div>
+    }
 
-        <div class="mb-3">
-            Escolaridade:
-            <select name="escolaridade" id="txtEscolaridade">
-                <option value="infantil">Infantil</option>
-                <option value="fundamental">Fundamental</option>
-                <option value="medio">Médio</option>
-                <option value="superior">Superior</option>
-
-            </select>
-            <br />
-            <br />
-            <br />
-            <br />
-            <button type="submit" class="btn btn-primary" id="btncadastro" style="width:150px;">Cadastrar</button>
+    <div class="row-mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
         </div>
     </div>
 </form>
+
+
+

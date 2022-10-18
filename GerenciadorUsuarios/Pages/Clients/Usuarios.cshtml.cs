@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 
-namespace GerenciadorUsuarios.Pages
+namespace GerenciadorUsuarios.Pages.Clients
 {
     public class UsuariosModel : PageModel
     {
@@ -22,23 +22,24 @@ namespace GerenciadorUsuarios.Pages
                         {
                             while (reader.Read())
                             {
-                                UsuariosInfo usuarios = new UsuariosInfo();
-                                usuarios.id = reader.GetInt32(0);
-                                usuarios.nome = reader.GetString(1);
-                                usuarios.sobrenome = reader.GetString(2);
-                                usuarios.email = reader.GetString(3);
-                                usuarios.dataNascimento = reader.GetString(4);
-                                usuarios.escolaridade = reader.GetString(5);
+                                UsuariosInfo usuariosInfo = new UsuariosInfo();
+                                usuariosInfo.id = reader.GetInt32(0);
+                                usuariosInfo.nome = reader.GetString(1);
+                                usuariosInfo.sobrenome = reader.GetString(2);
+                                usuariosInfo.email = reader.GetString(3);
+                                usuariosInfo.dataNascimento = reader.GetString(4);
+                                usuariosInfo.escolaridade = reader.GetString(5);
+                                usuariosInfo.created_at = reader.GetDateTime(6).ToString() ;
 
-                                listUsuarios.Add(usuarios); // adicionar objeto na lista
+                                listUsuarios.Add(usuariosInfo); // adicionar objeto na lista
                             }
                         }
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine("Exception: " + ex.ToString());
             }
         }
     }
@@ -51,6 +52,7 @@ namespace GerenciadorUsuarios.Pages
         public string email;
         public string dataNascimento;
         public string escolaridade;
+        public string created_at;
 
     }
 }
