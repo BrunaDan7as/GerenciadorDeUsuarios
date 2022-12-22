@@ -1,11 +1,10 @@
 ﻿@page
-@model GerenciadorUsuarios.Pages.Clients.CreateModel
+@model GerenciadorUsuarios.Pages.Clients.EditModel
 @{
 }
-<!--Formulário para cadastrar novo usuário-->
 
 <br />
-<h2>Novo Usuário</h2>
+<h2>Editar Usuário</h2>
 
 @if (Model.errorMessage.Length > 0)
 {
@@ -16,6 +15,7 @@
 }
 
 <form method="post">
+    <input type="hidden" name="id" value="@Model.usuariosInfo.id" />
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Nome</label>
         <div class="col-sm-6">
@@ -68,6 +68,3 @@
         </div>
     </div>
 </form>
-
-
-

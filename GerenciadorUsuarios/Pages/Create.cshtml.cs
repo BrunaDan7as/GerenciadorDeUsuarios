@@ -64,7 +64,7 @@ namespace GerenciadorUsuarios.Pages.Clients
             usuariosInfo.nome = ""; usuariosInfo.sobrenome = ""; usuariosInfo.email = ""; usuariosInfo.dataNascimento = ""; usuariosInfo.escolaridade = "";
             sucessMessage = "Novo usuário cadastrado";
 
-            Response.Redirect("/Clients/Usuario");
+            Response.Redirect("/Clients/Usuarios");
             
         }
     }

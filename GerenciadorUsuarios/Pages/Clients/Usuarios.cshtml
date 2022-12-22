@@ -7,6 +7,9 @@
 <!-- Botão para cadastrar usuário-->
 <a class="btn btn-primary btn-sm" href="/Create">Novo Cadastro</a> 
 <!--Tabela com as nomenclaturas das colunas-->
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +19,6 @@
             <th>Email</th>
             <th>Data Nascimento</th>
             <th>Escolaridade</th>
-            <th>Data Criação</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -31,14 +33,31 @@
          <td>@item.email</td>
          <td>@item.dataNascimento</td>
          <td>@item.escolaridade</td>
-         <td>@item.created_at</td>
+
          <td>
              <!--Botões de editar e excluir do banco-->
-             <a class="btn btn-primary btn-sm" href="/Client/Edit?id=@item.id">Editar</a>
-             <a class="btn btn-danger btn-sm" href="/Client/Delete?id=@item.id">Excluir</a>
+             <a class="btn btn-primary btn-sm" href="/Clients/Edit?id=@item.id">Editar</a>
+             <a class="btn btn-danger btn-sm" onclick="confirmar(@item.id)" >Excluir</a>
          </td>
      </tr>       
 }
 
     </tbody>
 </table>
+
+<script>
+    function confirmar(id) {
+        var resultado = confirm("Deseja excluir esse usuário?");
+    if (resultado == true) {
+        alert("Excluído com sucesso"); 
+        window.location.href = "/Clients/Delete?id="+id;
+    }
+    else {
+        alert("Ação cancelada");
+        }
+
+     }
+</script>
+ 
+
+

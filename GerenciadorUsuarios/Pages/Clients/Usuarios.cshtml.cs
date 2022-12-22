@@ -29,7 +29,6 @@ namespace GerenciadorUsuarios.Pages.Clients
                                 usuariosInfo.email = reader.GetString(3);
                                 usuariosInfo.dataNascimento = reader.GetString(4);
                                 usuariosInfo.escolaridade = reader.GetString(5);
-                                usuariosInfo.created_at = reader.GetDateTime(6).ToString() ;
 
                                 listUsuarios.Add(usuariosInfo); // adicionar objeto na lista
                             }
@@ -52,7 +51,7 @@ namespace GerenciadorUsuarios.Pages.Clients
         public string email;
         public string dataNascimento;
         public string escolaridade;
-        public string created_at;
+
 
     }
 }
